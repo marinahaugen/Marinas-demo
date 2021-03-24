@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>My first art</title>
+        <link rel="stylesheet" type="text/css" href="MyStylesheet1.css">
+</head>
+<body>
+
+    
+<div class="square"></div>
+<div class="circle done"></div>
+<div class="triangle-up"></div>
+
+<div id='root'></div>
+
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+
+    const todo = ['Add aaaaaa sqare', 'Add a sircle', 'Add a triangle']
+    
+    const todoList = React.createElement(
+        'ol', 
+        null, 
+        todo.map((t, i) => React.createElement("li", {key: i, class:'done', title: 'sss'}, t))
+    )
+    
+    const art = React.createElement('div', null, 
+            React.createElement('h1', null, 'This is my first art work!'),
+            React.createElement('h2', null, 'Todo list:'),  
+            todoList,
+            React.createElement('div', {class:"square"},)
+
+    ) 
+
+    ReactDOM.render(art, document.getElementById('root'))
+    console.log('msg: ', art)
+
+</script>
+
+</body>
+</html>
