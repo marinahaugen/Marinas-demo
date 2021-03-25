@@ -22,14 +22,14 @@ const bankData = [
 
 ]
 
-function Bank({ name, currentBalance, transactions }) {
+function BankAccount({ name, currentBalance, transactions, isDeposit }) {
     return (
         <fieldset id={name}>
             <legend>{name}</legend>
             
             <h2>Current Balance is: {currentBalance} NOK</h2>
             <h2>Transactions</h2>
-            <ul>
+            <ul style={{ color: isDeposit? 'green': 'red' }}>
                 {transactions.map((transaction, i) =>
                     <li key={i}>{transaction.description} NOK {transaction.price}</li>
                 )}
@@ -45,7 +45,7 @@ const App = ({title, bank}) =>
         </header>
         <div>
             {bank.map((bank, i) =>
-                <Bank key={i} {...bank} />
+                <BankAccount key={i} {...bank} />
             )}
         </div>
     </div>
