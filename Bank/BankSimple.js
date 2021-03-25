@@ -29,9 +29,9 @@ function BankAccount({ name, currentBalance, transactions, isDeposit }) {
             
             <h2>Current Balance is: {currentBalance} NOK</h2>
             <h2>Transactions</h2>
-            <ul style={{ color: isDeposit? 'green': 'red' }}>
-                {transactions.map((transaction, i) =>
-                    <li key={i}>{transaction.description} NOK {transaction.price}</li>
+            <ul>
+                {transactions.map((t, i) =>
+                    <li key={i} style={{ color: t.isDeposit? 'green': 'red' }}>{t.description} NOK {t.price}</li>
                 )}
             </ul>
         </fieldset>
